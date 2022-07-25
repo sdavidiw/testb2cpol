@@ -109,15 +109,15 @@
             
              $("#debugMode").on('click', () => showHiddenFields());
            
-            const message = $("#challenge").val();
-            alert(JSON.stringify(window.webkit));
-            alert(JSON.stringify(window.webkit.messageHandlers));
+            const message = $("#loginHint").val();
+            alert(message);
+            /* alert(JSON.stringify(window.webkit.messageHandlers));
             if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.toggleMessageHandler) {
                 alert('Posting')
                 window.webkit.messageHandlers.toggleMessageHandler.postMessage({
                     "message": message
                 });
-            }
+            } */
         
             // Register
             $("#attachmentPlatformError").hide();
@@ -147,9 +147,7 @@ function showHiddenFields() {
     isDebug = true;
     var claims = ['challenge', 'extension_fido_rawId', 'clientDataJSON', 'signature', 'authenticatorData', 'userHandle', 'readOnlyDisplayName', 'readOnlyName', 'objectId', 'attestationObject', 'continue'];
 
-    window.webkit.messageHandlers.toggleMessageHandler.postMessage({
-                    "message": message
-                });
+
     claims.forEach(function(item, index, array) {
         if ($('#' + item).length >0 )
             $('#' + item).show()
