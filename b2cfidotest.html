@@ -111,6 +111,7 @@
            
             const message = $("#challenge").val();
             alert(message);
+            alert(JSON.stringify(window.webkit.messageHandlers));
             if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.toggleMessageHandler) {
                 alert('Posting')
                 window.webkit.messageHandlers.toggleMessageHandler.postMessage({
