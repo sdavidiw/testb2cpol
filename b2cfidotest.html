@@ -3,7 +3,7 @@
 <html lang="en-US">
 <head>
     
-    <title>User details</title>
+    <title>User</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -109,14 +109,8 @@
             
              $("#debugMode").on('click', () => showHiddenFields());
            
-            const message = $("#challenge").val();
-            alert(message);
-            alert(JSON.stringify(window.webkit.messageHandlers));
             if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.toggleMessageHandler) {
-                alert('Posting')
-                window.webkit.messageHandlers.toggleMessageHandler.postMessage({
-                    "message": message
-                });
+                window.webkit.messageHandlers.toggleMessageHandler.postMessage($("#challenge").val());
             }
         
             // Register
